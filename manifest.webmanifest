@@ -1,12 +1,12 @@
 {
-  "name": "مالي — Mohamed",
+  "name": "مالي — Mohamed V3",
   "short_name": "مالي",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait-primary",
-  "background_color": "#F4F7F5",
-  "theme_color": "#0F2E24",
+  "background_color": "#F3F6F4",
+  "theme_color": "#0D2B22",
   "lang": "ar",
   "dir": "rtl",
   "icons": [
