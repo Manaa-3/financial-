@@ -1,11 +1,11 @@
 {
-  "name": "مالي — Wealth Manager V4",
-  "short_name": "مالي",
+  "name": "مالي V5 — Mohamed",
+  "short_name": "مالي V5",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "background_color": "#F2F6F3",
-  "theme_color": "#08271E",
+  "theme_color": "#0A2D22",
   "lang": "ar",
   "dir": "rtl",
   "icons": [

@@ -3,94 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#08271E">
+<meta name="theme-color" content="#0A2D22">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icon-192.png">
-<title>مالي — Wealth Manager</title>
-<style>
-:root{--bg:#F2F6F3;--card:#fff;--card2:#EAF1ED;--text:#142019;--muted:#718078;--p:#0B3326;--p2:#277052;--gold:#B88D35;--red:#C34B4B;--ok:#27875B;--line:#DCE6E0;--shadow:0 14px 35px rgba(8,39,30,.10)}
-[data-theme=dark]{--bg:#07140F;--card:#10231A;--card2:#183226;--text:#F3F7F4;--muted:#A8B7AF;--p:#08271E;--p2:#3C936A;--gold:#D8B157;--red:#EB7070;--ok:#61C792;--line:#29473A;--shadow:0 16px 40px rgba(0,0,0,.3)}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Tahoma,Arial,sans-serif}button,input,select,textarea{font:inherit}
-header{position:sticky;top:0;z-index:40;background:linear-gradient(135deg,var(--p),var(--p2));color:#fff;padding:calc(13px + env(safe-area-inset-top)) 15px 15px;border-radius:0 0 26px 26px;box-shadow:var(--shadow)}
-.top{display:flex;justify-content:space-between;align-items:center}.top h1{font-size:20px;margin:0}.top p{font-size:11px;margin:3px 0 0;opacity:.85}.icon{border:0;background:#ffffff20;color:#fff;border-radius:12px;padding:9px}
-main{max-width:1150px;margin:auto;padding:13px 11px 105px}.screen{display:none;animation:fade .2s ease}.screen.active{display:block}@keyframes fade{from{opacity:.25;transform:translateY(5px)}to{opacity:1}}
-.grid2,.grid4{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.card{background:var(--card);border:1px solid var(--line);border-radius:19px;padding:14px;box-shadow:var(--shadow);margin-bottom:11px}.kpi{min-height:112px;display:flex;flex-direction:column;justify-content:space-between}.kpi span{color:var(--muted);font-size:11px}.kpi b{font-size:23px}.kpi small{color:var(--muted);font-size:10px}
-.sh{display:flex;justify-content:space-between;align-items:center;gap:7px;margin-bottom:9px}.sh h2{font-size:16px;margin:0}.pill{background:var(--card2);color:var(--p2);padding:5px 8px;border-radius:999px;font-size:10px}
-label{display:block;color:var(--muted);font-size:11px;margin-top:9px}input,select,textarea{width:100%;padding:11px;border:1px solid var(--line);border-radius:11px;background:var(--card);color:var(--text);margin-top:5px}.row{display:flex;gap:8px}.row>*{flex:1}
-button{border:0;border-radius:11px;padding:11px 12px;font-weight:700}.primary{width:100%;margin-top:10px;color:#fff;background:linear-gradient(135deg,var(--p2),#3D936B)}.secondary{background:var(--card2);color:var(--p2)}.danger{background:#FCE9E9;color:var(--red);width:100%;margin-top:9px}
-nav{position:fixed;bottom:0;left:0;right:0;z-index:50;background:var(--card);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(7,1fr);padding:6px 2px calc(6px + env(safe-area-inset-bottom))}nav button{background:transparent;color:var(--muted);font-size:9px;padding:7px 1px}nav button.active{color:var(--p2)}
-.fab{position:fixed;left:14px;bottom:91px;z-index:55;width:57px;height:57px;border-radius:50%;font-size:27px;background:var(--gold);color:#fff;box-shadow:var(--shadow)}
-.alert{padding:11px;border-radius:12px;margin:7px 0;background:#FFF4D6;color:#715100}.alert.ok{background:#E7F5EC;color:#245B3F}.alert.bad{background:#FBE8E8;color:#8A2929}
-.progress{height:10px;background:var(--card2);border-radius:99px;overflow:hidden}.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--p2),var(--gold));transition:.35s}
-.chart{height:245px}.chart canvas{width:100%;height:100%}.score{font-size:40px;font-weight:800;color:var(--p2)}
-table{width:100%;border-collapse:collapse;font-size:12px}th,td{padding:9px 5px;border-bottom:1px solid var(--line);text-align:right}th{color:var(--muted)}
-.tx{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 0;border-bottom:1px solid var(--line)}.tx img{width:46px;height:46px;object-fit:cover;border-radius:9px}.muted{font-size:11px;color:var(--muted)}.empty{text-align:center;padding:22px;color:var(--muted)}
-.tabs{display:flex;gap:6px;overflow:auto;padding-bottom:4px}.tabs button{white-space:nowrap;background:var(--card2);color:var(--muted)}.tabs button.active{background:var(--p2);color:#fff}.lock{position:fixed;inset:0;z-index:100;background:linear-gradient(135deg,var(--p),var(--p2));display:flex;align-items:center;justify-content:center;padding:20px}.lockbox{background:var(--card);color:var(--text);width:min(420px,100%);border-radius:22px;padding:20px;text-align:center}.hidden{display:none!important}
-.breakdown{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.metric{background:var(--card2);padding:10px;border-radius:12px}.calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}.day{background:var(--card2);border-radius:9px;min-height:44px;padding:5px;font-size:11px}.day.hit{border:1px solid var(--gold)}
-@media(min-width:760px){.grid4{grid-template-columns:repeat(4,minmax(0,1fr))}.grid2{grid-template-columns:repeat(2,minmax(0,1fr))}}
-</style>
+<link rel="stylesheet" href="styles.css">
+<title>مالي V5 — Mohamed</title>
 </head>
 <body>
-<div id="lockScreen" class="lock hidden"><div class="lockbox"><h2>🔐 مالي — Mohamed</h2><p class="muted">أدخل PIN لفتح التطبيق</p><input id="pinInput" type="password" inputmode="numeric" maxlength="6"><button class="primary" onclick="unlock()">فتح</button><p id="lockMsg" class="muted"></p></div></div>
-<header><div class="top"><div><h1>مالي — Wealth Manager</h1><p id="monthTitle"></p></div><div><button class="icon" onclick="toggleTheme()">◐</button> <button class="icon" onclick="lockNow()">🔒</button></div></div></header>
-<main>
-<section id="home" class="screen active">
-<div class="grid4"><div class="card kpi"><span>الدخل</span><b id="kIncome">0</b><small>ريال</small></div><div class="card kpi"><span>المصروف</span><b id="kSpent">0</b><small>هذا الشهر</small></div><div class="card kpi"><span>المتبقي</span><b id="kRemain">0</b><small>ريال</small></div><div class="card kpi"><span>صافي الثروة</span><b id="kNet">0</b><small>ريال</small></div></div>
-<div id="alerts"></div>
-<div class="card"><div class="sh"><h2>المستشار المالي الذكي</h2><span class="pill">تحليل محلي</span></div><div id="smartInsights"></div></div>
-<div class="grid2"><div class="card"><div class="sh"><h2>توزيع المصروفات</h2><span class="pill">الشهر الحالي</span></div><div class="chart"><canvas id="donut"></canvas></div></div><div class="card"><div class="sh"><h2>تطور صافي الثروة</h2><span class="pill">Snapshots</span></div><div class="chart"><canvas id="netChart"></canvas></div><button class="secondary" onclick="saveSnapshot()">حفظ Snapshot اليوم</button></div></div>
-<div class="grid2"><div class="card"><div class="sh"><h2>Financial Score</h2><span class="pill">من 100</span></div><div class="score" id="score">0</div><div id="scoreBreakdown" class="breakdown"></div></div><div class="card"><div class="sh"><h2>توقع نهاية الشهر</h2><span class="pill">Forecast</span></div><div id="forecast"></div></div></div>
-<div class="card"><div class="sh"><h2>الأهداف</h2><button class="secondary" onclick="go('goals')">إدارة</button></div><div id="homeGoals"></div></div>
-</section>
-
-<section id="add" class="screen">
-<div class="card"><h2>إضافة مصروف</h2><label>المبلغ</label><input id="eAmount" type="number"><label>الفئة</label><select id="eCat"></select><label>التاجر/المكان</label><input id="eMerchant"><label>ملاحظة</label><input id="eNote"><label>التاريخ الميلادي</label><input id="eDate" type="date"><label>صورة الفاتورة</label><input id="eReceipt" type="file" accept="image/*" capture="environment"><button class="secondary" style="width:100%;margin-top:8px" onclick="readReceipt()">قراءة الفاتورة OCR</button><label><input id="eLocation" type="checkbox" style="width:auto"> حفظ الموقع الحالي</label><button class="primary" onclick="addExpense()">حفظ المصروف</button></div>
-<div class="card"><h2>دخل جديد</h2><label>المبلغ</label><input id="iAmount" type="number"><label>النوع</label><select id="iType"><option>راتب</option><option>بدل</option><option>مكافأة</option><option>دخل إضافي</option></select><label>التاريخ</label><input id="iDate" type="date"><button class="primary" onclick="addIncome()">حفظ</button></div>
-</section>
-
-<section id="budget" class="screen">
-<div class="card"><div class="sh"><h2>الميزانية</h2><button class="secondary" onclick="toggleBudget()">تعديل</button></div><table><thead><tr><th>الفئة</th><th>المخطط</th><th>الفعلي</th><th>الفرق</th></tr></thead><tbody id="budgetRows"></tbody></table></div>
-<div id="budgetEdit" class="card hidden"><h2>تعديل الميزانية</h2><div id="budgetInputs"></div><button class="primary" onclick="saveBudget()">حفظ</button></div>
-<div class="card"><div class="sh"><h2>بحث العمليات</h2><span class="pill" id="txCount"></span></div><div class="row"><input id="search" placeholder="بحث..." oninput="renderTransactions()"><select id="filterCat" onchange="renderTransactions()"><option value="">الكل</option></select></div><input id="filterMonth" type="month" onchange="renderTransactions()"><div id="txList"></div></div>
-</section>
-
-<section id="wealth" class="screen">
-<div class="grid4"><div class="card kpi"><span>كاش وطوارئ</span><b id="wCash">0</b></div><div class="card kpi"><span>معادن</span><b id="wMetals">0</b></div><div class="card kpi"><span>استثمارات</span><b id="wInv">0</b></div><div class="card kpi"><span>ديون</span><b id="wDebt">0</b></div></div>
-<div class="card"><div class="tabs"><button class="active" onclick="setAssetTab('metals',this)">ذهب وفضة</button><button onclick="setAssetTab('stocks',this)">أسهم وصناديق</button><button onclick="setAssetTab('currency',this)">عملات</button></div><div id="assetPanel"></div></div>
-<div class="card"><div class="sh"><h2>توزيع صافي الثروة</h2><span class="pill">Assets</span></div><div class="chart"><canvas id="assetChart"></canvas></div></div>
-</section>
-
-<section id="goals" class="screen">
-<div class="card"><h2>إضافة هدف</h2><label>اسم الهدف</label><input id="gName" placeholder="شراء بيت / تعليم الابن"><div class="row"><div><label>المبلغ المستهدف</label><input id="gTarget" type="number"></div><div><label>الرصيد الحالي</label><input id="gCurrent" type="number"></div></div><label>موعد مستهدف</label><input id="gDate" type="date"><label>نوع الهدف</label><select id="gType"><option>عام</option><option>تعليم الابن</option><option>بيت</option><option>سيارة</option><option>تقاعد</option></select><button class="primary" onclick="addGoal()">إضافة الهدف</button></div>
-<div class="card"><h2>الأهداف الحالية</h2><div id="goalList"></div></div>
-<div class="card"><h2>حاسبة النمو</h2><div class="row"><div><label>استثمار شهري</label><input id="calcMonthly" type="number" value="3000"></div><div><label>عائد سنوي %</label><input id="calcRate" type="number" value="8"></div></div><label>عدد السنوات</label><input id="calcYears" type="number" value="10"><button class="primary" onclick="calcFuture()">احسب</button><div id="calcResult"></div></div>
-</section>
-
-<section id="planner" class="screen">
-<div class="card"><div class="sh"><h2>Salary Planner</h2><span class="pill">توزيع تلقائي</span></div><label>الراتب</label><input id="pSalary" type="number"><div id="plannerRows"></div><button class="primary" onclick="savePlanner()">حفظ النسب</button><div id="plannerResult"></div></div>
-<div class="card"><h2>توقع المصروفات القادمة</h2><div id="categoryForecast"></div></div>
-<div class="card"><h2>تحليل الإنفاق</h2><div id="analytics"></div></div>
-</section>
-
-<section id="calendar" class="screen">
-<div class="card"><div class="sh"><h2>التقويم الميلادي</h2><div><button class="secondary" onclick="calMove(-1)">‹</button> <span id="calTitle" class="pill"></span> <button class="secondary" onclick="calMove(1)">›</button></div></div><div id="calGrid" class="calendar"></div></div><div class="card"><h2>تفاصيل اليوم</h2><div id="calDetails" class="empty">اختر يومًا</div></div>
-</section>
-
-<section id="reports" class="screen">
-<div class="card"><div class="tabs"><button class="active" onclick="reportMode='monthly';renderReport()">شهري</button><button onclick="reportMode='annual';renderReport()">سنوي</button></div><div id="report"></div><button class="primary" onclick="window.print()">تصدير PDF</button><button class="secondary" style="width:100%;margin-top:8px" onclick="exportExcel()">تصدير Excel</button></div>
-<div class="card"><h2>المصروفات حسب الموقع</h2><div id="locationList"></div></div>
-</section>
-
-<section id="settings" class="screen">
-<div class="card"><h2>الإعدادات</h2><label>الراتب</label><input id="sSalary" type="number"><label>الدين</label><input id="sDebt" type="number"><label>الكاش</label><input id="sCash" type="number"><label>رصيد الطوارئ</label><input id="sEmergency" type="number"><label>هدف الطوارئ</label><input id="sEmergencyTarget" type="number"><button class="primary" onclick="saveSettings()">حفظ</button></div>
-<div class="card"><h2>الحماية</h2><label>PIN جديد (4-6 أرقام)</label><input id="sPin" type="password" inputmode="numeric"><button class="primary" onclick="savePin()">تفعيل/تغيير PIN</button></div>
-<div class="card"><h2>الخدمات الاختيارية</h2><label>GoldAPI Key</label><input id="goldKey" type="password"><label>OCR.Space API Key</label><input id="ocrKey" type="password"><button class="primary" onclick="saveKeys()">حفظ المفاتيح</button></div>
-<div class="card"><h2>المزامنة السحابية Supabase</h2><label>Project URL</label><input id="sbUrl"><label>Anon Key</label><input id="sbKey"><label>البريد</label><input id="sbEmail"><label>كلمة المرور</label><input id="sbPass" type="password"><div class="row"><button class="secondary" onclick="sbSignup()">إنشاء حساب</button><button class="secondary" onclick="sbLogin()">دخول</button></div><div class="row"><button class="primary" onclick="cloudPush()">رفع</button><button class="primary" onclick="cloudPull()">استرجاع</button></div><label><input id="autoSync" type="checkbox" style="width:auto" onchange="saveAutoSync()"> مزامنة تلقائية كل 5 دقائق</label><div id="syncStatus" class="muted"></div></div>
-<div class="card"><h2>النسخ الاحتياطي</h2><button class="secondary" style="width:100%" onclick="exportJSON()">تصدير JSON</button><label>استيراد</label><input type="file" accept=".json" onchange="importJSON(event)"><button class="danger" onclick="resetAll()">مسح البيانات</button></div>
-</section>
-</main>
-<button class="fab" onclick="go('add')">+</button>
-<nav><button class="active" onclick="go('home')">الرئيسية</button><button onclick="go('budget')">الميزانية</button><button onclick="go('wealth')">الثروة</button><button onclick="go('goals')">الأهداف</button><button onclick="go('planner')">التخطيط</button><button onclick="go('calendar')">التقويم</button><button onclick="go('reports')">التقارير</button></nav>
+<div id="root"></div>
+<script src="react.production.min.js"></script>
+<script src="react-dom.production.min.js"></script>
 <script src="app.js"></script>
-</body></html>
+</body>
+</html>
